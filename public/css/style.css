@@ -1,0 +1,15 @@
+body {
+    align-content: center;
+    align-self: center;
+    align-items: center;
+    alignment: center;
+}
+
+#headers > p, h2, h3 {
+    text-align: center;
+}
+
+#from-to > p {
+    display:inline-flex;
+    text-align: center;
+}
