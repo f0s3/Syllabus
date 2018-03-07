@@ -1,8 +1,8 @@
-var express = require('express');
-var path = require('path');
-var app = express();
-var port = 4444;
-var directory = __dirname.substring(0, __dirname.length - 4);
+let express = require('express');
+//let path = require('path');
+let app = express();
+let port = 4444;
+let directory = __dirname.substring(0, __dirname.length - 4);
 
 app.use(express.static(directory + "/public/"));
 

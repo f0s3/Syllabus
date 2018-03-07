@@ -9,28 +9,23 @@ function dateController(fromDateValue, toDateValue) {
     if (toDateDay.length === 1) toDateDay = '0' + toDateDay;
 
     //for from-date
-    let fromDateYear = fromDate.getFullYear().toString();
-    fromDateYear = fromDateYear.substring(2,fromDateYear.length);
+    let fromDateYearFull = fromDate.getFullYear().toString();
     let fromDateMonth = (fromDate.getMonth() + 1).toString();
     if (fromDateMonth.length === 1) fromDateMonth = '0' + fromDateMonth;
     let fromDateDay = (fromDate.getDate()).toString();
     if (fromDateDay.length === 1) fromDateDay = '0' + fromDateDay;
 
-    //create an array of dates and weekIds
     let tableMetaData = [];
-    //let tableUnit = {};
 
+    //this whole if-else logic needs to be rebuilt somehow
     if (fromDateMonth === toDateMonth) {
         for (let selectedDay = parseInt(fromDateDay);selectedDay <= parseInt(toDateDay);selectedDay++) {
             let selectedDayStr = selectedDay.toString();
             if (selectedDayStr.length === 1) selectedDayStr = '0' + selectedDayStr;
-            let selectedDateStr = fromDateMonth + '-' + selectedDayStr + '-' + fromDateYear;
+            let selectedDateStr = fromDateYearFull + '-' + fromDateMonth + '-' + selectedDayStr;
             let selectedDate = new Date(selectedDateStr);
-            console.log(selectedDate);
-            //todo:fix this "Invalid date"!!
-            //let weekId = selectedDate.getDay();
-            //tableMetaData.push(tableUnit.weekId = weekId);
-            //tableMetaData.push(tableUnit['date'] = selectedDate.toDateString());
+            let weekId = selectedDate.getDay();
+            tableMetaData.push({"weekId":weekId,"date":selectedDate.toDateString()});
         }
     } else if (fromDateMonth === toDateMonth - 1 && fromDateMonth < toDateMonth) {
         function differentMonthsCounter(monthEnding) {
