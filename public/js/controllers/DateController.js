@@ -18,16 +18,20 @@ function dateController(fromDateValue, toDateValue) {
 
     //create an array of dates and weekIds
     let tableMetaData = [];
+    //let tableUnit = {};
 
     if (fromDateMonth === toDateMonth) {
         for (let selectedDay = parseInt(fromDateDay);selectedDay <= parseInt(toDateDay);selectedDay++) {
             let selectedDayStr = selectedDay.toString();
             if (selectedDayStr.length === 1) selectedDayStr = '0' + selectedDayStr;
-            let selectedDate = new Date(fromDateMonth + '-' + selectedDayStr + '-' + fromDateYear);
-            let weekId = selectedDate.getDay();
-            tableMetaData.push({"weekId":weekId,"date":selectedDate.toString()});
+            let selectedDateStr = fromDateMonth + '-' + selectedDayStr + '-' + fromDateYear;
+            let selectedDate = new Date(selectedDateStr);
+            console.log(selectedDate);
+            //todo:fix this "Invalid date"!!
+            //let weekId = selectedDate.getDay();
+            //tableMetaData.push(tableUnit.weekId = weekId);
+            //tableMetaData.push(tableUnit['date'] = selectedDate.toDateString());
         }
-        //console.log(tableMetaData);
     } else if (fromDateMonth === toDateMonth - 1 && fromDateMonth < toDateMonth) {
         function differentMonthsCounter(monthEnding) {
             let i = 1;
@@ -54,16 +58,5 @@ function dateController(fromDateValue, toDateValue) {
                 break;//november
         }
     }
-
-    /* example of what it needs to be
-    let weekIdAndDate = [
-        {weekId:3,date:'18-03-04'},
-        {weekId:4,date:'18-03-05'},
-        {weekId:5,date:'18-03-06'},
-        {weekId:1,date:'18-03-07'},
-        {weekId:2,date:'18-03-08'},
-        {weekId:3,date:'18-03-09'}
-    ];
-    */
     tableController(tableMetaData);
 }
