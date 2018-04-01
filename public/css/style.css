@@ -1,15 +1,65 @@
 body {
-    align-content: center;
-    align-self: center;
-    align-items: center;
-    alignment: center;
+    margin: 0;
+    background-color: #f8f8f8;
+}
+/* headers */
+#university-name-header {
+    background-color: cadetblue;
+    color: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0 0 15px 0;
+    text-align: center;
+    font-size: larger;
+    font-family: 'Open Sans', sans-serif;
+}
+#syllabus-header {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 0 0 10px 0;
+    text-align: center;
+    font-size: xx-large;
+    font-family: 'Roboto', sans-serif;
+}
+/* controls */
+#controls {
+    margin: 15px 75px 15px 75px;
+    padding: 10px;
+    background-color: #e9e9e9;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+}
+#nni-faculty-input-wrapper {
+    margin-top: 0;
+}
+#flex-date-input-wrapper,
+#flex-group-subgroup-wrapper,
+#submit-btn {
+    margin-top: 7px;
+}
+#nni-faculty-input-wrapper {
+    display: flex;
+    justify-content: center;
+}
+#nni-faculty-input option {
+    font-size: medium;
+}
+#flex-group-subgroup-wrapper,
+#flex-date-input-wrapper {
+    display: flex;
+    justify-content: center;
+}
+#group-input,
+#from-date {
+    margin-right: 15px;
 }
 
-#headers > p, h2, h3 {
-    text-align: center;
+/*fonts for every controls label*/
+#nni-faculty-input-label,
+#group-input-label, #subgroup-input-label,
+#from-date-label, #to-date-label {
+    font-family: 'Roboto Mono Light for Powerline', sans-serif;
 }
 
-#from-to > p {
-    display:inline-flex;
-    text-align: center;
-}
+/* table content css will be added after logic */

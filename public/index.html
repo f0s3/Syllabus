@@ -1,36 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/style.css"/>
-    <title>Syllabus</title>
-</head>
-<body>
-<div id="page-content">
-    <div id="headers">
-        <p id="university-name">Черкаський  національний університет ім. Богдана Хмельницького</p>
-        <h2 id="header">Розклад занять</h2>
-        <h3 id="group-header">Група {group-id}</h3>
-    </div>
-    <div id="controls">
-        <div id="from-to">
-            <p>З дати:</p>
-            <p>По дату:</p>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/style.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:600&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:300|Roboto:500" rel="stylesheet">
+        <title>Syllabus</title>
+    </head>
+    <body>
+        <div id="page-content">
+            <!-- headers -->
+            <p id="university-name-header">Черкаський національний університет ім. Богдана Хмельницького</p>
+            <p id="syllabus-header">Розклад занять</p>
+
+            <div id="controls">
+                <!-- nni or faculty -->
+                <div id="nni-faculty-input-wrapper">
+                    <label for="nni-faculty-input" id="nni-faculty-input-label">ННІ або факультет&nbsp</label>
+                    <select id="nni-faculty-input">
+                        <option id="nni-ep">
+                            ННІ економіки і права
+                        </option>
+                        <option id="nni-im">
+                            ННІ іноземних мов
+                        </option>
+                        <option id="nni-iot">
+                            ННІ інформаційних та освітніх технологій
+                        </option>
+                        <option id="nni-if">
+                            ННІ історії і філософії
+                        </option>
+                        <option id="nni-posrm">
+                            ННІ педагогічної освіти, соціальної роботи і мистецтва
+                        </option>
+                        <option id="nni-pn">
+                            ННІ природничих наук
+                        </option>
+                        <option id="nni-ufsk">
+                            ННІ української філології та соціальних комунікацій
+                        </option>
+                        <option id="nni-fksz">
+                            ННІ фізичної культури, спорту і здоров’я
+                        </option>
+                        <option id="f-psy">
+                            Психологічний факультет
+                        </option>
+                        <option id="f-otius">
+                            Факультет обчислювальної техніки, інтелектуальних та управляючих систем
+                        </option>
+                        <option id="nnc-imo">
+                            Навчально-науковий центр «Інститут міжнародної освіти»
+                        </option>
+                        <option id="i-dppo">
+                            Інститут доуніверситетської підготовки і післядипломної освіти
+                        </option>
+                    </select>
+                </div>
+
+                <!-- group and subgroup -->
+                <div id="flex-group-subgroup-wrapper">
+                    <label for="group-input" id="group-input-label">Група&nbsp</label><input type="text" id="group-input"/>
+                    <label for="subgroup-input" id="subgroup-input-label">Підгрупа&nbsp</label><input type="number" id="subgroup-input"/>
+                </div>
+
+                <!-- date -->
+                <div id="flex-date-input-wrapper">
+                    <label for="from-date" id="from-date-label">З дати&nbsp</label><input type="date" id="from-date"/>
+                    <label for="to-date" id="to-date-label">По дату&nbsp</label><input type="date" id="to-date"/>
+                </div>
+
+                <!-- submit button -->
+                <input type="button" id="submit-btn" value="Показати розклад" onclick="main()"/>
+            </div>
         </div>
-        <div>
-            <label for="from-date"></label><input type="date" id="from-date"/>
-            <label for="to-date"></label><input type="date" id="to-date"/>
+        <div class="table-content" id="table-content">
+            <p>table content goes here.</p>
         </div>
-    </div>
-    <label>submit your input:<input type="button" id="submit-btn" value="submit" onclick="main()"/></label>
-    <div id="schedule-tables">
-        <div class="table-content" id="table-content" table-content></div>
-    </div>
-</div>
-    <script type="text/javascript" src="js/views/TableView.js"></script>
-    <script type="text/javascript" src="js/controllers/TableController.js"></script>
-    <script type="text/javascript" src="js/controllers/DateController.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
-</body>
+        <script type="text/javascript" src="js/views/TableView.js"></script>
+        <script type="text/javascript" src="js/controllers/TableController.js"></script>
+        <script type="text/javascript" src="js/controllers/DateController.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+    </body>
 </html>
