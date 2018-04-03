@@ -1,4 +1,4 @@
-function tableView(tableData) {
+function TableView(tableData) {
     //display it!!
-    console.log(tableData);
+    console.log(tableData); //debugging purposes
 }

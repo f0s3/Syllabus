@@ -1,4 +1,8 @@
-function dateController(fromDateValue, toDateValue) {
+/*
+* dateController checks the date entered and prepares it.
+* returns and array of days needed to be reflected on table itself.
+* */
+function DateController(fromDateValue, toDateValue) {
     let fromDate = new Date(fromDateValue);
     let toDate = new Date(toDateValue);
 
@@ -53,5 +57,5 @@ function dateController(fromDateValue, toDateValue) {
                 break;//november
         }
     }
-    tableController(tableMetaData);
+    TableController(tableMetaData);
 }

@@ -1,15 +1,10 @@
 function main() {
+    let nniOrFValue = document.getElementById('nni-faculty-input').value;
+    let groupValue = document.getElementById('group-input').value;
+    let subgroupValue = document.getElementById('subgroup-input').value;
     let fromDateValue = document.getElementById('from-date').value;
     let toDateValue = document.getElementById('to-date').value;
-
-    dateController(fromDateValue, toDateValue);
-
-    //to-date validation
-    /*if (toDateValue === '') {
-        console.log('empty!');
-    } else if (toDateValue < currentDate) {
-        console.log('empty!');
-    } else {
-        dateController(toDateValue);
-    }*/
+    NNIOrFacultyController(nniOrFValue);
+    GroupAndSubgroupController(groupValue,subgroupValue);
+    DateController(fromDateValue, toDateValue);
 }
