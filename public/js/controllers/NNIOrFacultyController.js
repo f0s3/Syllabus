@@ -1,6 +1,4 @@
-/*
-* processes and prepares nni or faculty.
-* */
+/*processes and prepares nni or faculty.*/
 /**
  * @return {string}
  */
