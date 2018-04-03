@@ -1,6 +1,9 @@
 /*
 * processes and prepares nni or faculty.
 * */
+/**
+ * @return {string}
+ */
 function NNIOrFacultyController(nniOrFValue) {
     let NNIOrFacultyPrepared = '';
     switch (nniOrFValue) {
@@ -18,6 +21,5 @@ function NNIOrFacultyController(nniOrFValue) {
         case 'Інститут доуніверситетської підготовки і післядипломної освіти':NNIOrFacultyPrepared = 'IDPPO';break;
         default: console.error('Chosen NNI or faculty does not exist.');
     }
-    console.log(NNIOrFacultyPrepared);
-    //GroupAndSubgroupController();
+    return NNIOrFacultyPrepared;
 }

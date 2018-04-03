@@ -1,5 +1,5 @@
 let express = require('express');
-//let path = require('path');
+
 let app = express();
 let port = 4444;
 let directory = __dirname.substring(0, __dirname.length - 4);
