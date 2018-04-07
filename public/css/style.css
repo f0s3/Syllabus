@@ -62,4 +62,14 @@ body {
     font-family: 'Roboto Mono Light for Powerline', sans-serif;
 }
 
-/* table content css will be added after logic */
+/* table content */
+#table-item-data {
+    margin: 0 0 0 75px;
+}
+
+#table {
+    margin: 0 75px 0 75px;
+}
+table, th, td {
+    border-collapse: collapse;
+}

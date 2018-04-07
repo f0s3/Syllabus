@@ -2,7 +2,8 @@
 /**
  * @return {string}
  */
-function NNIOrFacultyController(nniOrFValue) {
+function NNIOrFacultyController() {
+    let nniOrFValue = document.getElementById('nni-faculty-input').value;
     let NNIOrFacultyPrepared = '';
     switch (nniOrFValue) {
         case 'ННІ економіки і права':NNIOrFacultyPrepared = 'NNIEP';break;

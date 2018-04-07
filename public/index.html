@@ -55,25 +55,36 @@
                         </option>
                     </select>
                 </div>
-
                 <!-- group and subgroup -->
                 <div id="flex-group-subgroup-wrapper">
                     <label for="group-input" id="group-input-label">Група&nbsp</label><input type="text" id="group-input"/>
                     <label for="subgroup-input" id="subgroup-input-label">Підгрупа&nbsp</label><input type="number" id="subgroup-input"/>
                 </div>
-
                 <!-- date -->
                 <div id="flex-date-input-wrapper">
                     <label for="from-date" id="from-date-label">З дати&nbsp</label><input type="date" id="from-date"/>
                     <label for="to-date" id="to-date-label">По дату&nbsp</label><input type="date" id="to-date"/>
                 </div>
-
                 <!-- submit button -->
                 <input type="button" id="submit-btn" value="Показати розклад" onclick="main()"/>
             </div>
         </div>
         <div class="table-content" id="table-content">
-            <p>table content goes here.</p>
+            <p id="table-item-data" style="margin:0 0 0 75px;"></p>
+            <table width="89%" border="1" id="table">
+                <tr>
+                    <th id="num-header" width="1%"></th>
+                    <th id="time-header" width="8%"></th>
+                    <th id="cabinet-header" width="1%"></th>
+                    <th id="subject-header" width="86%"></th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
         </div>
         <script type="text/javascript" src="js/views/TableView.js"></script>
         <script type="text/javascript" src="js/controllers/TableController.js"></script>
