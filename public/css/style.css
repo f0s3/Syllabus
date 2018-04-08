@@ -67,9 +67,22 @@ body {
     margin: 0 0 0 75px;
 }
 
-#table {
+#monday-table,
+#tuesday-table,
+#wednesday-table,
+#thursday-table,
+#friday-table {
     margin: 0 75px 0 75px;
 }
+
+#monday-label,
+#tuesday-label,
+#wednesday-label,
+#thursday-label,
+#friday-label {
+    margin-left: 75px;
+}
+
 table, th, td {
     border-collapse: collapse;
 }
