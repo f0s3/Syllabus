@@ -9,7 +9,7 @@
     <body>
         <div id="page-content">
             <!-- headers -->
-            <p id="university-name-header">Черкаський національний університет ім. Богдана Хмельницького</p>
+            <p id="university-name-header">Черкаський національний університет імені Богдана Хмельницького</p>
             <p id="syllabus-header">Розклад занять</p>
 
             <div id="controls">
@@ -70,28 +70,22 @@
             </div>
         </div>
         <div class="table-content" id="table-content">
-            <p id="table-item-data" style="margin:0 0 0 75px;"></p>
-            <table width="89%" border="1" id="table">
-                <tr>
+            <p id="table-item-data"></p>
+            <table width="89%" id="table">
+                <tr id="table-headers">
                     <th id="num-header" width="1%"></th>
                     <th id="time-header" width="8%"></th>
                     <th id="cabinet-header" width="1%"></th>
                     <th id="subject-header" width="86%"></th>
                 </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
             </table>
         </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script type="text/javascript" src="js/views/TableView.js"></script>
         <script type="text/javascript" src="js/controllers/TableController.js"></script>
         <script type="text/javascript" src="js/controllers/DateController.js"></script>
         <script type="text/javascript" src="js/controllers/NNIOrFacultyController.js"></script>
         <script type="text/javascript" src="js/controllers/GroupAndSubgroupController.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
     </body>
 </html>
