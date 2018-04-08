@@ -1,8 +1,6 @@
 /*tableController prepares ALL the data to be shown in tableView.*/
 function TableController(weekDays) {
     //let tableData = [];//finalArray, probably will be replaced by object
-    //todo:get all data and create final object
-
     fetch(GroupAndSubgroupController())
         .then(promise => promise.json())
         .then(function(response) {
@@ -42,7 +40,7 @@ function TableController(weekDays) {
                             .attr("border", "1")
                             .append("<tr id='table-headers-tuesday'></tr>")
                             .append("<tr id='tuesday-table-item-1'></tr>");
-                        //th...
+                        //th
                         $("#table-headers-tuesday")
                             .append("<th class='lessonId-header'>№</th>")
                             .append("<th class='time-header'>Час</th>")
@@ -64,7 +62,7 @@ function TableController(weekDays) {
                             .attr("border", "1")
                             .append("<tr id='table-headers-wednesday'></tr>")
                             .append("<tr id='wednesday-table-item-1'></tr>");
-                        //th...
+                        //th
                         $("#table-headers-wednesday")
                             .append("<th class='lessonId-header'>№</th>")
                             .append("<th class='time-header'>Час</th>")
