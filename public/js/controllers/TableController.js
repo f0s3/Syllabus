@@ -1,6 +1,6 @@
-/*tableController prepares ALL the data to be shown in tableView.*/
 function TableController(weekDays) {
-    //let tableData = [];//finalArray, probably will be replaced by object
+    //let tableData = [];//f#ck. seems like i don't need that anymore.
+    //todo:responsive design: table => div
     fetch(GroupAndSubgroupController())
         .then(promise => promise.json())
         .then(function(response) {
@@ -65,11 +65,8 @@ function TableController(weekDays) {
 
                         //fill with data
                         for (let i = response["tuesday"]["lessonId"][0];i <= response["tuesday"]["lessonId"].length;i++) {
-                            console.log(i);
-                            $("#tuesday-table")
-                                .append("<tr id='tuesday-table-item-'></tr>");
-                            $("#tuesday-table-item-")
-                                .attr("id", "tuesday-table-item-" + i);
+                            $("#tuesday-table").append("<tr id='tuesday-table-item-'></tr>");
+                            $("#tuesday-table-item-").attr("id", "tuesday-table-item-" + i);
 
                             $("#tuesday-table-item-" + i)
                                 .append("<td id='tuesday-lessonId-'></td>")
@@ -105,10 +102,8 @@ function TableController(weekDays) {
 
                         //fill with data
                         for (let i = response["wednesday"]["lessonId"][0];i <= response["wednesday"]["lessonId"].length;i++) {
-                            $("#wednesday-table")
-                                .append("<tr id='wednesday-table-item-'></tr>");
-                            $("#wednesday-table-item-")
-                                .attr("id", "wednesday-table-item-" + i);
+                            $("#wednesday-table").append("<tr id='wednesday-table-item-'></tr>");
+                            $("#wednesday-table-item-").attr("id", "wednesday-table-item-" + i);
 
                             $("#wednesday-table-item-" + i)
                                 .append("<td id='wednesday-lessonId-'></td>")
@@ -116,8 +111,7 @@ function TableController(weekDays) {
                                 .append("<td id='wednesday-cabinet-'></td>")
                                 .append("<td id='wednesday-subject-'></td>");
 
-                            $("#wednesday-lessonId-")
-                                .attr("id", "wednesday-lessonId-" + i);
+                            $("#wednesday-lessonId-").attr("id", "wednesday-lessonId-" + i);
                             $("#wednesday-lessonId-" + i).text(i);
                             $("#wednesday-time-").attr("id", "wednesday-time-" + i);
                             $("#wednesday-time-" + i).text(response["wednesday"]["time"][i - 1]);
@@ -144,10 +138,8 @@ function TableController(weekDays) {
 
                         //fill with data
                         for (let i = response["thursday"]["lessonId"][0];i <= response["thursday"]["lessonId"].length;i++) {
-                            $("#thursday-table")
-                                .append("<tr id='thursday-table-item-'></tr>");
-                            $("#thursday-table-item-")
-                                .attr("id", "thursday-table-item-" + i);
+                            $("#thursday-table").append("<tr id='thursday-table-item-'></tr>");
+                            $("#thursday-table-item-").attr("id", "thursday-table-item-" + i);
 
                             $("#thursday-table-item-" + i)
                                 .append("<td id='thursday-lessonId-'></td>")
@@ -155,8 +147,7 @@ function TableController(weekDays) {
                                 .append("<td id='thursday-cabinet-'></td>")
                                 .append("<td id='thursday-subject-'></td>");
 
-                            $("#thursday-lessonId-")
-                                .attr("id", "thursday-lessonId-" + i);
+                            $("#thursday-lessonId-").attr("id", "thursday-lessonId-" + i);
                             $("#thursday-lessonId-" + i).text(i);
                             $("#thursday-time-").attr("id", "thursday-time-" + i);
                             $("#thursday-time-" + i).text(response["thursday"]["time"][i - 1]);
@@ -183,10 +174,8 @@ function TableController(weekDays) {
 
                         //fill with data
                         for (let i = response["friday"]["lessonId"][0];i <= response["friday"]["lessonId"].length;i++) {
-                            $("#friday-table")
-                                .append("<tr id='friday-table-item-'></tr>");
-                            $("#friday-table-item-")
-                                .attr("id", "friday-table-item-" + i);
+                            $("#friday-table").append("<tr id='friday-table-item-'></tr>");
+                            $("#friday-table-item-").attr("id", "friday-table-item-" + i);
 
                             $("#friday-table-item-" + i)
                                 .append("<td id='friday-lessonId-'></td>")
@@ -194,8 +183,7 @@ function TableController(weekDays) {
                                 .append("<td id='friday-cabinet-'></td>")
                                 .append("<td id='friday-subject-'></td>");
 
-                            $("#friday-lessonId-")
-                                .attr("id", "friday-lessonId-" + i);
+                            $("#friday-lessonId-").attr("id", "friday-lessonId-" + i);
                             $("#friday-lessonId-" + i).text(i);
                             $("#friday-time-").attr("id", "friday-time-" + i);
                             $("#friday-time-" + i).text(response["friday"]["time"][i - 1]);
@@ -207,20 +195,6 @@ function TableController(weekDays) {
                         break;
                 }
             }
-
-
-            /*
-            //adds new item in table
-            let tr = document.createElement("tr");
-            let tableItem = document.getElementById("table-headers")
-                .parentNode.insertBefore(tr, document.getElementById("table-headers").nextSibling);
-            tableItem.setAttribute("id",response["monday"]["dayId"]);
-
-
-            let td = document.createElement("td");
-            let num = document.getElementById("tr1")
-                .parentNode.insertBefore(td, document.getElementById("tr1").nextSibling);
-            */
-            //TableView(tableData);
+            //TableView(tableData); //f#ck. seems like i don't need that anymore :/
         });
 }

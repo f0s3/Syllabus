@@ -1,3 +1,3 @@
 function TableView(tableData) {
-    //display it!!
+    //i don't need that anymore. all logic including display is in TableController()
 }
