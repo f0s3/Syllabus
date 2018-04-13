@@ -33,8 +33,7 @@ body {
 #nni-faculty-input-wrapper {
     margin-top: 0;
 }
-#flex-date-input-wrapper,
-#flex-group-subgroup-wrapper,
+div[id^="flex-"][id$="-wrapper"],
 #submit-btn {
     margin-top: 7px;
 }
@@ -54,35 +53,32 @@ body {
 #from-date {
     margin-right: 15px;
 }
-
-/*fonts for every controls label*/
-#nni-faculty-input-label,
-#group-input-label, #subgroup-input-label,
-#from-date-label, #to-date-label {
+label[id$="-input-label"],
+label[id$="-date-label"] {
     font-family: 'Roboto Mono Light for Powerline', sans-serif;
 }
-
-/* table content */
+thead {
+    background-color: #e9ecef;
+}
+thead tr th {
+    padding: 3px;
+}
+#table-content {
+    width: 100%;
+}
 #table-item-data {
     margin: 0 0 0 75px;
 }
-
-#monday-table,
-#tuesday-table,
-#wednesday-table,
-#thursday-table,
-#friday-table {
+p[id$="-label"] {
+    margin-left: 75px;
+    margin-top: 30px;
+}
+td[id ~= -lessonId-] {
+    padding-left: 7px;
+}
+table[id$="-table"] {
     margin: 0 75px 0 75px;
 }
-
-#monday-label,
-#tuesday-label,
-#wednesday-label,
-#thursday-label,
-#friday-label {
-    margin-left: 75px;
-}
-
-table, th, td {
-    border-collapse: collapse;
+.footer {
+    margin: 75px;
 }
