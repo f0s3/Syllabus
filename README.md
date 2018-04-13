@@ -25,7 +25,9 @@ I don't really care about format, but the more nice it is, the better it is for 
 TODO:
 - Responsive design(Bootstrap 4).
 - Bug fixes.
+- Different languages.
+- Dark/Light theme.(if people ask for it i will do such thing)
 
 v.0.1.
-+ Got it to work. Works good inside PC browser.
++ Almost fully responsive page(Bootstrap 4).
 + Small bug fixes.
