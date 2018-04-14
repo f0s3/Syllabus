@@ -1,11 +1,9 @@
 function TableController(weekDays) {
-    //let tableData = [];//f#ck. seems like i don't need that anymore.
-    //todo:responsive design: table => div
     fetch(GroupAndSubgroupController())
         .then(promise => promise.json())
         .then(function(response) {
-            //adds {text} inside </th>
-            for (let weekday = weekDays[0];weekday <= weekDays.length;weekday++) {
+            //todo: fix this global for-loop!
+            for (let weekday = weekDays[0];weekday < weekDays.length;weekday++) {
                 switch (weekday) {
                     case 1:
                         //logic of tableView() - create an empty table.

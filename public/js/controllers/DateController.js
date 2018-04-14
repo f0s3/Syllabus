@@ -31,60 +31,51 @@ function DateController(fromDateValue, toDateValue) {
             monthEnding = 30;
             break;
         case '02':
-            if (!fromDateYearFull % 4 === 0) monthEnding = 28;
-            else {monthEnding = 29;}
+            if (fromDateYearFull % 4 === 0) monthEnding = 29;
+            else {monthEnding = 28;}
             break;
     }
     //getting the range of weekDays
-    if ((fromDateMonth === toDateMonth) || (monthEnding - parseInt(fromDateDay) >= 7)) {
+    if ((parseInt(fromDateMonth) === parseInt(toDateMonth)) || (monthEnding - parseInt(fromDateDay) >= 5)) {
         for (let selectedDay = parseInt(fromDateDay);selectedDay <= parseInt(toDateDay);selectedDay++) {
             createArrayWithWeekdays(selectedDay);
         }
     } else if (parseInt(fromDateMonth) < parseInt(toDateMonth) &&
-        (monthEnding - parseInt(fromDateDay) < 7)) {
+        (monthEnding - parseInt(fromDateDay) < 5)) {
         for (let selectedDay = parseInt(fromDateDay);selectedDay <= monthEnding;selectedDay++) {
             createArrayWithWeekdays(selectedDay);
         }
+        //f#ck. who has written such a bad code? it was bad idea to try new drugs :/ (jk)
         for (let selectedDay = 1;selectedDay <= parseInt(toDateDay);selectedDay++) {
             let selectedDayStr = selectedDay.toString();
             if (selectedDayStr.length === 1) selectedDayStr = '0' + selectedDayStr;
             let selectedDate = new Date(toDateYearFull + '-' + toDateMonth + '-' + selectedDayStr);
             if (!(selectedDate.getDay() === 6) &&
                 !(selectedDate.getDay() === 0) &&
-                (weekDays.length < 5)) {
+                (weekDays.length <= 5)) {
                 weekDays.push(selectedDate.getDay());
             }
         }
     }
-
+    sort(weekDays);
+    removeSameElements(weekDays);
     function createArrayWithWeekdays(selectedDay) {
         let selectedDayStr = selectedDay.toString();
         if (selectedDayStr.length === 1) selectedDayStr = '0' + selectedDayStr;
         let selectedDate = new Date(fromDateYearFull + '-' + fromDateMonth + '-' + selectedDayStr);
-        if (!(selectedDate.getDay() === 6) &&
-            !(selectedDate.getDay() === 0) &&
-            (weekDays.length < 5))
+        if (weekDays.length < 5 && !(selectedDate.getDay() === 6) && !(selectedDate.getDay() === 0))
             weekDays.push(selectedDate.getDay());
     }
-
     //sort the range of weekDays
-    function quickSort(weekDays) {
-        if (weekDays.length <= 1) {
-            return weekDays;
-        } else {
-            let left = [];
-            let right = [];
-            let newArray = [];
-            let pivot = weekDays.pop();
-            for (let i = 0; i < weekDays.length; i++) {
-                if (weekDays[i] <= pivot) {
-                    left.push(weekDays[i]);
-                } else {
-                    right.push(weekDays[i]);
-                }
-            }
-            return newArray.concat(quickSort(left), pivot, quickSort(right));
+    function sort(weekDays) {
+        weekDays.sort((a, b) => {return a - b});
+    }
+    //code works without this func but still let it be here just in case
+    function removeSameElements(weekDays) {
+        for (let i = 0;i < weekDays.length;i++) {
+            if (weekDays[i - 1] === weekDays[i])
+                weekDays = weekDays.filter(item => item !== 3);
         }
     }
-    TableController(quickSort(weekDays));
+    TableController(weekDays);
 }
