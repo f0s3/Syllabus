@@ -2,9 +2,8 @@ function TableController(weekDays) {
     fetch(GroupAndSubgroupController())
         .then(promise => promise.json())
         .then(function(response) {
-            //todo: fix this global for-loop!
-            for (let weekday = weekDays[0];weekday < weekDays.length;weekday++) {
-                switch (weekday) {
+            for (let weekdaysCount = 0;weekdaysCount < weekDays.length;weekdaysCount++) {
+                switch (weekDays[weekdaysCount]) {
                     case 1:
                         //logic of tableView() - create an empty table.
                         $('#table-content')
