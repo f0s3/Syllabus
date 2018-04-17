@@ -1,23 +1,18 @@
-/*
-* dateController checks the date entered and prepares it.
-* returns and array of days needed to be reflected on table itself.
-* */
 function DateController(fromDateValue, toDateValue) {
-    let fromDate = new Date(fromDateValue);
-    let toDate = new Date(toDateValue);
     //for from-date
+    let fromDate = new Date(fromDateValue);
     let fromDateYearFull = fromDate.getFullYear().toString();
     let fromDateMonth = (fromDate.getMonth() + 1).toString();
     if (fromDateMonth.length === 1) fromDateMonth = '0' + fromDateMonth;
     let fromDateDay = (fromDate.getDate()).toString();
     if (fromDateDay.length === 1) fromDateDay = '0' + fromDateDay;
     //for to-date
+    let toDate = new Date(toDateValue);
     let toDateYearFull = fromDate.getFullYear().toString();
     let toDateMonth = (toDate.getMonth() + 1).toString();
     if (toDateMonth.length === 1) toDateMonth = '0' + toDateMonth;
     let toDateDay = (toDate.getDate()).toString();
     if (toDateDay.length === 1) toDateDay = '0' + toDateDay;
-    let weekDays = [];//final array
     let monthEnding;
     switch (fromDateMonth) {
         case '01':case '03':
@@ -31,38 +26,41 @@ function DateController(fromDateValue, toDateValue) {
             monthEnding = 30;
             break;
         case '02':
-            if (fromDateYearFull % 4 === 0) monthEnding = 29;
-            else {monthEnding = 28;}
+            switch (fromDateYearFull % 4) {
+                case 0:
+                    monthEnding = 29;
+                    break;
+                default:
+                    monthEnding = 28;
+                    break;
+            }
             break;
     }
+    let weekDays = [];//final array
     //getting the range of weekDays
     if ((parseInt(fromDateMonth) === parseInt(toDateMonth)) || (monthEnding - parseInt(fromDateDay) >= 5)) {
         for (let selectedDay = parseInt(fromDateDay);selectedDay <= parseInt(toDateDay);selectedDay++) {
-            createArrayWithWeekdays(selectedDay);
+            addDataToTheArrayWithWeekdays(selectedDay, "from");
         }
     } else if (parseInt(fromDateMonth) < parseInt(toDateMonth) &&
         (monthEnding - parseInt(fromDateDay) < 5)) {
         for (let selectedDay = parseInt(fromDateDay);selectedDay <= monthEnding;selectedDay++) {
-            createArrayWithWeekdays(selectedDay);
+            addDataToTheArrayWithWeekdays(selectedDay, "from");
         }
-        //f#ck. who has written such a bad code? it was bad idea to try new drugs :/ (jk)
         for (let selectedDay = 1;selectedDay <= parseInt(toDateDay);selectedDay++) {
-            let selectedDayStr = selectedDay.toString();
-            if (selectedDayStr.length === 1) selectedDayStr = '0' + selectedDayStr;
-            let selectedDate = new Date(toDateYearFull + '-' + toDateMonth + '-' + selectedDayStr);
-            if (!(selectedDate.getDay() === 6) &&
-                !(selectedDate.getDay() === 0) &&
-                (weekDays.length <= 5)) {
-                weekDays.push(selectedDate.getDay());
-            }
+            addDataToTheArrayWithWeekdays(selectedDay, "to");
         }
     }
     sort(weekDays);
     removeSameElements(weekDays);
-    function createArrayWithWeekdays(selectedDay) {
+    function addDataToTheArrayWithWeekdays(selectedDay,fromOrTo) {
         let selectedDayStr = selectedDay.toString();
         if (selectedDayStr.length === 1) selectedDayStr = '0' + selectedDayStr;
-        let selectedDate = new Date(fromDateYearFull + '-' + fromDateMonth + '-' + selectedDayStr);
+        let selectedDate;
+        switch (fromOrTo) {
+            case "from":selectedDate = new Date(fromDateYearFull + '-' + fromDateMonth + '-' + selectedDayStr);break;
+            case "to":selectedDate = new Date(toDateYearFull + '-' + toDateMonth + '-' + selectedDayStr);break;
+        }
         if (weekDays.length < 5 && !(selectedDate.getDay() === 6) && !(selectedDate.getDay() === 0))
             weekDays.push(selectedDate.getDay());
     }
@@ -70,7 +68,7 @@ function DateController(fromDateValue, toDateValue) {
     function sort(weekDays) {
         weekDays.sort((a, b) => {return a - b});
     }
-    //code works without this func but still let it be here just in case
+    //code works without this func but still let it be here just in case :)
     function removeSameElements(weekDays) {
         for (let i = 0;i < weekDays.length;i++) {
             if (weekDays[i - 1] === weekDays[i])
