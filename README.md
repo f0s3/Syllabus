@@ -1,6 +1,6 @@
 # Syllabus
 
-Usefull app that allows you to have a look on what lessons you have in a specific day of week or an array of days.
+Useful app that allows you to have a look on what lessons you have in a specific day of week or an array of days.
 
 ## About
 
