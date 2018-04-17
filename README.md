@@ -27,6 +27,7 @@ TODO:
 - Bug fixes.
 - Different languages.
 - Dark/Light theme.(if people ask for it i will do such thing)
+- Doesn't work properly on mobile devices.(for unknown reason)
 
 v.0.1.
 + Almost fully responsive page(Bootstrap 4).
