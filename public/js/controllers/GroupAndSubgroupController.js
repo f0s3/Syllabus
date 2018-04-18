@@ -3,7 +3,7 @@
  * @return {string}
  */
 function GroupAndSubgroupController() {
-    let domain = "localhost";
+    let domain = window.location.hostname;
     return "http://" + domain + ":4444/js/models/" +
         NNIOrFacultyController() + "/" +
         document.getElementById('group-input').value + "/" +
