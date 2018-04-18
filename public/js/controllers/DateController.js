@@ -26,7 +26,7 @@ function DateController(fromDateValue, toDateValue) {
             monthEnding = 30;
             break;
         case '02':
-            switch (fromDateYearFull % 4) {
+            switch (parseInt(fromDateYearFull) % 4) {
                 case 0:
                     monthEnding = 29;
                     break;
@@ -38,21 +38,29 @@ function DateController(fromDateValue, toDateValue) {
     }
     let weekDays = [];//final array
     //getting the range of weekDays
-    if ((parseInt(fromDateMonth) === parseInt(toDateMonth)) || (monthEnding - parseInt(fromDateDay) >= 5)) {
+    if ((parseInt(fromDateMonth) === parseInt(toDateMonth)) && (monthEnding - parseInt(fromDateDay) >= 5)) {
+        //console.log("same months");
         for (let selectedDay = parseInt(fromDateDay);selectedDay <= parseInt(toDateDay);selectedDay++) {
             addDataToTheArrayWithWeekdays(selectedDay, "from");
         }
-    } else if (parseInt(fromDateMonth) < parseInt(toDateMonth) &&
-        (monthEnding - parseInt(fromDateDay) < 5)) {
+    } else if (parseInt(fromDateYearFull) === parseInt(toDateYearFull) &&
+        parseInt(fromDateMonth) === parseInt(toDateMonth) - 1) {
+        //console.log("different months");
         for (let selectedDay = parseInt(fromDateDay);selectedDay <= monthEnding;selectedDay++) {
             addDataToTheArrayWithWeekdays(selectedDay, "from");
         }
         for (let selectedDay = 1;selectedDay <= parseInt(toDateDay);selectedDay++) {
             addDataToTheArrayWithWeekdays(selectedDay, "to");
         }
+    } else if ((fromDateMonth === '12') &&
+        (toDateMonth === '01') &&
+        (parseInt(fromDateYearFull) === parseInt(toDateYearFull) - 1)) {
+        console.log("new year");
     }
+
     sort(weekDays);
     removeSameElements(weekDays);
+
     function addDataToTheArrayWithWeekdays(selectedDay,fromOrTo) {
         let selectedDayStr = selectedDay.toString();
         if (selectedDayStr.length === 1) selectedDayStr = '0' + selectedDayStr;

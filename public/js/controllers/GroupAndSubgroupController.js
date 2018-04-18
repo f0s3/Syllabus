@@ -3,7 +3,8 @@
  * @return {string}
  */
 function GroupAndSubgroupController() {
-    return "http://localhost:4444/js/models/" +
+    let domain = "localhost";
+    return "http://" + domain + ":4444/js/models/" +
         NNIOrFacultyController() + "/" +
         document.getElementById('group-input').value + "/" +
         document.getElementById('subgroup-input').value + ".json";
