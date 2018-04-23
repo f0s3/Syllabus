@@ -38,29 +38,23 @@ function DateController(fromDateValue, toDateValue) {
     }
     let weekDays = [];//final array
     //getting the range of weekDays
-    if ((parseInt(fromDateMonth) === parseInt(toDateMonth)) && (monthEnding - parseInt(fromDateDay) >= 5)) {
-        //console.log("same months");
+    if ((parseInt(fromDateMonth) === parseInt(toDateMonth))) {
         for (let selectedDay = parseInt(fromDateDay);selectedDay <= parseInt(toDateDay);selectedDay++) {
             addDataToTheArrayWithWeekdays(selectedDay, "from");
         }
     } else if (parseInt(fromDateYearFull) === parseInt(toDateYearFull) &&
-        parseInt(fromDateMonth) === parseInt(toDateMonth) - 1) {
-        //console.log("different months");
+        parseInt(fromDateMonth) === parseInt(toDateMonth) - 1 ||
+        (fromDateMonth === '12' &&
+            toDateMonth === '01')) {
         for (let selectedDay = parseInt(fromDateDay);selectedDay <= monthEnding;selectedDay++) {
             addDataToTheArrayWithWeekdays(selectedDay, "from");
         }
         for (let selectedDay = 1;selectedDay <= parseInt(toDateDay);selectedDay++) {
             addDataToTheArrayWithWeekdays(selectedDay, "to");
         }
-    } else if ((fromDateMonth === '12') &&
-        (toDateMonth === '01') &&
-        (parseInt(fromDateYearFull) === parseInt(toDateYearFull) - 1)) {
-        console.log("new year");
     }
-
-    sort(weekDays);
+    weekDays.sort((a, b) => {return a - b});
     removeSameElements(weekDays);
-
     function addDataToTheArrayWithWeekdays(selectedDay,fromOrTo) {
         let selectedDayStr = selectedDay.toString();
         if (selectedDayStr.length === 1) selectedDayStr = '0' + selectedDayStr;
@@ -72,16 +66,10 @@ function DateController(fromDateValue, toDateValue) {
         if (weekDays.length < 5 && !(selectedDate.getDay() === 6) && !(selectedDate.getDay() === 0))
             weekDays.push(selectedDate.getDay());
     }
-    //sort the range of weekDays
-    function sort(weekDays) {
-        weekDays.sort((a, b) => {return a - b});
-    }
     //code works without this func but still let it be here just in case :)
     function removeSameElements(weekDays) {
-        for (let i = 0;i < weekDays.length;i++) {
-            if (weekDays[i - 1] === weekDays[i])
-                weekDays = weekDays.filter(item => item !== 3);
-        }
+        for (let i = 0;i < weekDays.length;i++)
+            if (weekDays[i - 1] === weekDays[i]) weekDays = weekDays.filter(item => item !== 3);
     }
     TableController(weekDays);
 }
