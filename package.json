@@ -1,7 +1,26 @@
 {
   "name": "Syllabus",
-  "version": "0.3",
+  "version": "0.0.0",
+  "description": "Useful app that allows you to have a look on what lessons you have in a specific day of week or an array of days.",
+  "main": "/home/f0s3/WebstormProjects/Syllabus/src/server.js",
   "dependencies": {
-    "express": "latest"
-  }
+    "express": "^4.16.2",
+    "fs": "^0.0.2",
+    "morgan": "^1.9.0",
+    "npm": "^5.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/f0s3/Syllabus.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/f0s3/Syllabus/issues"
+  },
+  "homepage": "https://github.com/f0s3/Syllabus#readme"
 }

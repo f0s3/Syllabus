@@ -19,22 +19,15 @@ function DateController(fromDateValue, toDateValue) {
         case '05':case '07':
         case '08':case '10':
         case '12':
-            monthEnding = 31;
-            break;
+            monthEnding = 31;break;
         case '04':case '06':
         case '09':case '11':
-            monthEnding = 30;
-            break;
+            monthEnding = 30;break;
         case '02':
             switch (parseInt(fromDateYearFull) % 4) {
-                case 0:
-                    monthEnding = 29;
-                    break;
-                default:
-                    monthEnding = 28;
-                    break;
+                case 0:monthEnding = 29;break;
+                default:monthEnding = 28;break;
             }
-            break;
     }
     let weekDays = [];//final array
     //getting the range of weekDays
