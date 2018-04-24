@@ -30,7 +30,6 @@ function DateController(fromDateValue, toDateValue) {
             }
     }
     let weekDays = [];//final array
-    //getting the range of weekDays
     if ((parseInt(fromDateMonth) === parseInt(toDateMonth))) {
         for (let selectedDay = parseInt(fromDateDay);selectedDay <= parseInt(toDateDay);selectedDay++) {
             addDataToTheArrayWithWeekdays(selectedDay, "from");
@@ -59,7 +58,6 @@ function DateController(fromDateValue, toDateValue) {
         if (weekDays.length < 5 && !(selectedDate.getDay() === 6) && !(selectedDate.getDay() === 0))
             weekDays.push(selectedDate.getDay());
     }
-    //code works without this func but still let it be here just in case :)
     function removeSameElements(weekDays) {
         for (let i = 0;i < weekDays.length;i++)
             if (weekDays[i - 1] === weekDays[i]) weekDays = weekDays.filter(item => item !== 3);

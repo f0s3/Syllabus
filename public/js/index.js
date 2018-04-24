@@ -9,6 +9,5 @@ function main() {
     let fromDateValue = $('#from-date').val();
     let toDateValue = $('#to-date').val();
     NNIOrFacultyController();
-    GroupAndSubgroupController();
     DateController(fromDateValue, toDateValue);
 }
