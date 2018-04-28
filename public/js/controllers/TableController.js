@@ -1,3 +1,6 @@
+/*
+* @Deprecated!
+* */
 function TableController(weekDays) {
     fetch(GroupAndSubgroupController())
     .then(promise => promise.json())

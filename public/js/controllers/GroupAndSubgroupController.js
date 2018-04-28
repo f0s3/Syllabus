@@ -1,12 +1,24 @@
-/*processes, validates and prepares group and subgroup*/
+let groupAndSubgroup = exports = {};
+let server = require('../src/server');
 /**
  * @return {string}
  */
-function GroupAndSubgroupController() {
-    let domain = window.location.hostname;
-    let baseURL = "http://" + domain + ":4444/js/models/" + NNIOrFacultyController() + "/";
-    if ($('#subgroup-input').val() === "") return baseURL + $('#group-input').val() + ".json"; //todo: fix this condition
-    else return baseURL + $('#group-input').val() + "/" + $('#subgroup-input').val() + ".json";
-}
-//todo: add logic for adding subgroup input if subgroup is divided
-//todo: this function is called twice(how?)
+groupAndSubgroup.GroupAndSubgroupController = function () {
+    //let domain = window.location.hostname;
+    let selectedDB = 'Syllabus_' + NNIOrFacultyController();
+    /* thoughts...
+    * what cases may occur:
+    * 1) user entered both group and subgroup
+    * 2) user entered none of fields
+    * 3) user entered only group
+    * 4) user entered only subgroup
+    * 5) user entered both fields but subgroup is entered incorrectly
+    * 6) user entered group and its incorrect
+    * 7) user entered both fields but group is incorrect
+    * */
+    let group = $('#group-input').val();
+    let subgroup = $('#subgroup-input').val();
+    //todo:check if group exists
+    console.log(server.groupExists(selectedDB, subgroup));
+    //let groupFromDB = server.getGroupInfoFromDB(selectedDB, group);
+};
