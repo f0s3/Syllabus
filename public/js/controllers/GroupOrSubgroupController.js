@@ -1,6 +1,6 @@
 let groupOrSubgroup = module.exports = {};
 const NNIOrFacultyController = require("./NNIOrFacultyController").NNIOrFacultyController;
-const server = require("../src/server");
+const DBRouter = require("../models/DBRouter").tableExists();
 
 groupOrSubgroup.GroupOrSubgroupController = function () {
     let db = NNIOrFacultyController();
@@ -12,7 +12,7 @@ groupOrSubgroup.GroupOrSubgroupController = function () {
     } else if (userSubgroupInput === '' && userGroupInput !== '') {
         groupOrSubgroupName = userGroupInput;
     }
-    if (server.tableExists(db, groupOrSubgroupName).toString() === '1') {
+    if (DBRouter.tableExists(db, groupOrSubgroupName).toString() === '1') {
         return groupOrSubgroupName;
     }
 };
