@@ -1,6 +1,7 @@
 let DateImport = module.exports = {};
-DateImport.DateController = function(fromDateValue, toDateValue) {
+DateImport.DateController = function() {
     //for from-date
+    let fromDateValue = $('#from-date').val();
     let fromDate = new Date(fromDateValue);
     let fromDateYearFull = fromDate.getFullYear().toString();
     let fromDateMonth = (fromDate.getMonth() + 1).toString();
@@ -8,6 +9,7 @@ DateImport.DateController = function(fromDateValue, toDateValue) {
     let fromDateDay = (fromDate.getDate()).toString();
     if (fromDateDay.length === 1) fromDateDay = '0' + fromDateDay;
     //for to-date
+    let toDateValue = $('#to-date').val();
     let toDate = new Date(toDateValue);
     let toDateYearFull = fromDate.getFullYear().toString();
     let toDateMonth = (toDate.getMonth() + 1).toString();
