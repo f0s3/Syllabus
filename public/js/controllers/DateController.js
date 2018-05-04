@@ -1,4 +1,5 @@
-function DateController(fromDateValue, toDateValue) {
+let DateImport = module.exports = {};
+DateImport.DateController = function(fromDateValue, toDateValue) {
     //for from-date
     let fromDate = new Date(fromDateValue);
     let fromDateYearFull = fromDate.getFullYear().toString();
@@ -62,5 +63,17 @@ function DateController(fromDateValue, toDateValue) {
         for (let i = 0;i < weekDays.length;i++)
             if (weekDays[i - 1] === weekDays[i]) weekDays = weekDays.filter(item => item !== 3);
     }
-    TableController(weekDays);
-}
+    let i = 0;
+    let weekDaysStr = [];
+    do {
+        switch (weekDays) {
+            case 1:weekDaysStr.push('monday');break;
+            case 2:weekDaysStr.push('tuesday');break;
+            case 3:weekDaysStr.push('wednesday');break;
+            case 4:weekDaysStr.push('thursday');break;
+            case 5:weekDaysStr.push('friday');break;
+        }
+        i++;
+    } while (i <= weekDays.length);
+    return weekDaysStr;
+};
