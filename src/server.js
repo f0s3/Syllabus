@@ -1,13 +1,21 @@
-let express = require('express');
-let morgan = require('morgan');
-let fs = require('fs');
-let path = require('path');
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const morgan = require('morgan');
 let app = express();
 let port = 4444;
-let directory = __dirname.substring(0, __dirname.length - 4);
-let accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {flags: 'a'});
 
-app.use(express.static(directory + "/public/"));
-app.use(morgan('[:date:[web]] :remote-addr :method :url :status :response-time ms', {stream: accessLogStream}));
-app.get('/', (req, res) => res.sendFile(directory + "/public/" + "html/" + "index.html"));
-app.listen(port,() => console.log('app listening on port '+ port +'!'));
+app.use(morgan('combined'));
+
+app.get('/', (req, res) => 
+		res.send({
+			body:data
+		})
+	);
+app.post('/', (req, res) => {
+	res.send({
+		body:data
+	});
+});
+
+app.listen(port, () => console.log('App listening on port '+ port +'!'));
