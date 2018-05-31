@@ -1,5 +1,4 @@
-let DateImport = module.exports = {};
-DateImport.DateController = function() {
+let DateController = function () {
     //for from-date
     let fromDateValue = $('#from-date').val();
     let fromDate = new Date(fromDateValue);
@@ -79,3 +78,4 @@ DateImport.DateController = function() {
     } while (i <= weekDays.length);
     return weekDaysStr;
 };
+module.exports = {DateController};

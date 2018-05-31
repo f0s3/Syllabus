@@ -1,18 +1,29 @@
 {
-  "name": "Syllabus",
+  "name": "syllabus",
   "version": "0.0.0",
   "description": "Useful app that allows you to have a look on what lessons you have in a specific day of week or an array of days.",
   "main": "/home/f0s3/WebstormProjects/Syllabus/src/server.js",
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "eslint": "^4.19.1",
     "express": "^4.16.2",
     "fs": "^0.0.2",
     "morgan": "^1.9.0",
-    "npm": "^5.7.1",
-    "mysql": "latest"
+    "mysql": "^2.15.0",
+    "nodemon": "^1.17.4",
+    "npm": "^5.7.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.1.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/nodemon/bin/nodemon.js src/app.js '--exec npm run lint && node'"
   },
   "repository": {
     "type": "git",

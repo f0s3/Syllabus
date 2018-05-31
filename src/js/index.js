@@ -1,6 +1,6 @@
-let main = module.exports = {};
-const Table = require('./controllers/TableController').TableController;
-main.main = function() {
+let {TableController} = require('/public/js/controllers/TableController');
+
+let main = function () {
     let weekdays = ["monday", "tuesday", "wednesday", "thursday", "friday"];
     for (let i = 0;i < weekdays.length;i++) {
         let weekdayLabel = $("#" + weekdays[i] + "-label");
@@ -9,5 +9,6 @@ main.main = function() {
             $("#" + weekdays[i] + "-table").remove();
         }
     }
-    Table.TableController();
+    console.log('wow!');
+    TableController();
 };
