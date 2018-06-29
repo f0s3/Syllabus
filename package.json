@@ -4,15 +4,15 @@
   "description": "Useful app that allows you to have a look on what lessons you have in a specific day of week or an array of days.",
   "main": "/home/f0s3/WebstormProjects/Syllabus/src/server.js",
   "dependencies": {
-    "body-parser": "^1.18.2",
+    "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "eslint": "^4.19.1",
     "express": "^4.16.2",
     "fs": "^0.0.2",
     "morgan": "^1.9.0",
     "mysql": "^2.15.0",
-    "nodemon": "^1.17.4",
-    "npm": "^5.7.1"
+    "nodemon": "^1.17.5",
+    "npm": "^6.1.0"
   },
   "devDependencies": {
     "eslint-config-standard": "^11.0.0",
